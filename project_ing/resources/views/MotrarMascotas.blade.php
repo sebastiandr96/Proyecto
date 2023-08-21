@@ -13,7 +13,7 @@
     </head>
 
     <body>
-        <a href="{{ route('seguimiento.mascotas.control', ['idMascota' => 1]) }}">Seguimiento Mascota</a>
+        
 
         <table class="table table-hover table-bordered table-sm mt-5">
             <tr>
@@ -24,11 +24,12 @@
                 <th>peso</th>
                 <th>marca</th>
                 <th>categoria</th>
+                <th>Seguimiento</th>
             </tr>
            
 	 @foreach ($mascotas as $mascota)
      <tr>
-     
+        
          <td>{{ $mascota->nombre }}</td>
          <td>{{ $mascota->raza }}</td>
          <td>{{ $mascota->edad }}</td>
@@ -36,7 +37,9 @@
          <td>{{ $mascota->peso }}</td>
          <td>{{ $mascota->segComida->marca }}</td>
          <td>{{ $mascota->segComida->categoria }}</td>
+         <td><a href="{{ route('seguimiento.mascotas.control', ['idMascota' => $mascota->id_mascota]) }}" class="btn btn-primary btn-sm">Seguimiento Mascota</a></td>
      </tr>
+   
          
     
     

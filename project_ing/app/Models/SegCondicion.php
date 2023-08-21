@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @property int $id
@@ -23,5 +24,12 @@ class SegCondicion extends Model
     public function editar(array $atributos)
     {
         $this->update($atributos);
+    }
+
+
+    
+    public function segmascota(): BelongsTo
+    {
+        return $this->belongsTo(Mascota::class, 'id_mascota', 'id_mascota');
     }
 }

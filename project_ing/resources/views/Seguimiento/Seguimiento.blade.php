@@ -38,17 +38,20 @@
     </nav>
     <h1 class="text-center">Seguimiento Mascota</h1>
     <div class="container mt-5">
-
+       
+        @foreach ($segConsultas as $consulta)
+         Nombre Mascota: <td>{{ $consulta->segmascota->nombre }}</td>
+       @endforeach
+        
         <table class="table table-hover table-bordered table-sm mt-5">
             <tr>
                 <th>Condicion</th>
                 <th>seguimeinto</th>
                 <th>fecha</th>
-                <th>Editar</th>
-                <th>Registrar</th>
-            </tr>
+                
             @foreach ($segConsultas as $consulta)
                 <tr>
+                 
                     <td>{{ $consulta->condicion }}</td>
                     <td>{{ $consulta->seguimiento }}</td>
                     <td>{{ $consulta->fecha }}</td>
@@ -62,9 +65,12 @@
               
          
             @endforeach
+            <div class="container mt-5">
             <a href="{{ route('mostrar.mascotas', ['idUsuario' => $mascota->id_usuario]) }}"
                 class="btn btn-primary btn-sm">Regresar</a>
-          
+                <a href="{{ route('seguimiento.mascotas.index', ['idMascota' => $mascota->id_mascota]) }}"
+                    class="btn btn-primary btn-sm">Crear</a></td>
+                </div>
 
         </table>
     </div>

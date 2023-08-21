@@ -48,7 +48,7 @@ class CondicionController extends Controller
     {
 
         $mascota = SegMascota::query()->find($idMascota,);
-        $segConsultas = $mascota->segCondiciones;
+        $segConsultas = $mascota->segCondiciones;   
         return view('Seguimiento.seguimiento', ['mascota' => $mascota, 'segConsultas' => $segConsultas]);
     }
     
